@@ -1,48 +1,41 @@
-<main class="portfolio">
-    <section class="pageTop">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xs-12 col-md-11 col-md-offset-1">
-                    <h1 class="col-md-4">
-                        Portfolio
-                    </h1>
-                </div>
-            </div>
-        </div>
-    </section>
-    <div class="clearfix"></div>
+<div class="topPage">
+    <ul class="col-md-11">
+        <li>
+            <h4>Lista de Cases</h4>
+        </li>
+    </ul>
+</div>
 
-    <section class="cases">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="botoes col-xs-12 col-md-offset-1 col-md-10">
-                    <div class="btn-group" opt-kind ok-key="filter" >
-                      <button type='button' class='btn btn-default active' ok-sel="*">Mostrar todos</button>
-                      <button type='button' class='btn btn-default' ok-sel=".site">Site Institucional</button>
-                      <button type='button' class='btn btn-default' ok-sel=".landing">Landing Page</button>
-                      <button type='button' class='btn btn-default' ok-sel=".emkt">E-mail Marketing</button>
-                      <button type='button' class='btn btn-default' ok-sel=".sistema">Sistemas</button>
-                      <button type='button' class='btn btn-default' ok-sel=".wordpress">Sites em Wordpress</button>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                 <ul id="isotopeContainer" isotope-container ng-cloak class="ng-cloak col-xs-12 col-md-offset-1 col-md-11">
-                    <li ng-repeat="x in cases" isotope-item class="kindling {{x.class}} col-xs-11 itemServico" onClick="removeItem(this)">
-                        <div class="nomeServico text-center">
-                           <h3>{{x.nome}}</h3>
-                        </div>
-                        <div class="tipoServico text-center">
-                           <span>{{x.tipo}}</span>
-                        </div>
-                        <div class="vejaMais pull-right">
-                            <a ng-href="#/portfolio/{{x._id}}"><i class="fa fa-link"></i></a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
+<div class="clearfix"></div>
 
-    <div class="push"></div>
-</main>
+<div class="table-responsive col-md-9">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Tipo</th>
+                <th>Data</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="case in cases">
+                <td>{{case.nome}}</td>
+                <td>{{case.tipo}}</td>
+                <td>{{case.data | date : 'dd/MM/yyyy'}}</td>
+                <td class="acoes">
+                    <ul>
+                        <li style="display:inline-block"><a href="/editPortfolio/{{case._id}}" class="btn btn-warning">Editar</a></li>
+                        <li style="display:inline-block"><a href="/removePortfolio/{{case._id}}" class="btn btn-danger">Excluir</a></li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="clearfix"></div>
+
+<div class="col-md-9 cadPortf">
+    <p>Deseja cadastrar um novo Case? <a href="#/cadPortfolio" class="btn btn-success">Cadastrar</a></p>
+</div>

@@ -5,6 +5,7 @@ $regular: 400;
 $bold: 700;
 $vermelho: #A81E22;
 $branco: #ffffff;
+$preto: #1e171f;
 $fontSize: 1em;
 $cinzaClaro: #d7d9dc;
 $cinzaPadrao: #7e8082;
@@ -46,3 +47,176 @@ $break-small: 40em;
 }
 
 /* MEDIA QUERIES */
+
+header{
+    background-color: $cinzaDestaque;
+    padding: 0;
+    & .logo{
+        background-color: $vermelho;
+        padding: 20px 0;
+        & img{
+            height: 70px;
+            margin: 0 auto;
+        }
+    }
+    & .login{
+        & ul{
+            & li{
+                display: inline-block;
+                & img{
+                    margin-top: 20px;
+                    margin-right: 10px;
+                }
+                & span{
+                    @include fontPadraoMX(1em);
+                    color: $branco;
+                    float: right;
+                    position: absolute;
+                    top: 50%;
+                }
+            }
+        }
+    }
+}
+.wrapContainer{
+        height: 100%;
+    & .container-fluid, & .row{
+        height: 100%;
+    }
+    & .menuLateral{
+        background-color: $vermelho;
+        height: 100%;
+        & ul{
+            margin-top: 20px;
+            & li{
+                padding: 25px;
+                background-color: transparent;
+                @include transitionMX(background-color, 0.2s);
+                & a{
+                    @include fontDestaqueMX(1.1em);
+                    color: $branco;
+                    letter-spacing: 2px;
+                    & i{
+                        margin-right: 10px;
+                        width: 40px;
+                    }
+                    &:hover, &:active, &:focus{
+                        text-decoration: none;
+                        background-color: transparent;
+                    }
+                }
+                &:hover, &:active, &:focus{
+                    background-color: rgba(255,255,255,0.3);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    & .content{
+        margin-top: 20px;
+    }
+}
+
+.topPage{
+    & ul{
+        padding-top: 25px;
+        padding-bottom: 25px;
+        border-bottom: solid 3px $cinzaClaro;
+        margin-bottom: 25px;
+        & li{
+            & h4{
+                @include fontDestaqueMX(2em);
+            }
+        }
+    }
+}
+
+/* PARTIAL - HOME - INÍCIO */
+
+.boxContent{
+    background-color: $cinzaClaro;
+    opacity: 0.6;
+    padding: 30px;
+    & h2{
+        @include fontDestaqueMX(2em);
+        text-align: center;
+    }
+    & .descriptBox{
+        margin-top: 20px;
+        & ul{
+            & li{
+                & ul{
+                    & li{
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+        & h4{
+            @include fontDestaqueMX(1.25em);
+            color: $preto;
+        }  
+        & p{
+            @include fontPadraoMX(1em);
+            color: $preto;
+            margin: 10px 0;
+        } 
+        & span{
+            @include fontPadraoMX(1em);
+            color: $preto;
+        }
+    }
+}
+
+/* PARTIAL - HOME - FIM */
+
+/* PARTIAL - PORTFOLIO - INICIO */
+
+.table{
+    & thead{
+        & tr{
+            & th{
+                @include fontDestaqueMX(1.2em);
+            }
+        }
+    }
+    & tbody{
+        & tr{
+            & td{
+                @include fontPadraoMX(1em);
+            }
+        }
+    }
+}
+.cadPortf{
+    & p{
+        @include fontPadraoMX(1em);
+    }
+}
+/* PARTIAL - PORTFOLIO - FIM */
+
+/* PARTIAL - CADASTRO PORTFOLIO - INICIO */
+.cadastro{
+    & label, & input[type='text'], & input[type='file']{
+        @include fontPadraoMX(1em);
+        padding-bottom: 10px;
+    }
+    & select{
+        @include fontPadraoMX(1em);
+    }
+    & .tecnologias{
+        margin-top: 55px;
+        & label{
+            display: block;
+        }
+        & ul{
+            display: inline-block;
+            width: 200px;
+        }
+    }
+    & button, & a{
+        @include fontPadraoMX(1em);
+        color: $branco;
+    }
+}
+/* PARTIAL - CADASTRO PORTFOLIO - FIM */

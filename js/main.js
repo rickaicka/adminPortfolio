@@ -1,4 +1,4 @@
-angular.module('Main', ['ngRoute', 'ngResource', 'angular-carousel']).config(function($routeProvider){
+angular.module('Main', ['ngRoute', 'ngResource', '720kb.datepicker']).config(function($routeProvider){
 
     $routeProvider.when('/index', {
         templateUrl:'partials/home.html',
@@ -14,18 +14,10 @@ angular.module('Main', ['ngRoute', 'ngResource', 'angular-carousel']).config(fun
         templateUrl:'partials/portfolio.html',
         controller: 'PortfolioController'
     });
-    
-    $routeProvider.when('/portfolio/:caseId', {
-        templateUrl:'partials/case.html',
-        controller:'PortfolioController'
-    });
 
-    $routeProvider.when('/servicos', {
-        templateUrl:'partials/servicos.html'
-    });
-
-    $routeProvider.when('/contato', {
-        templateUrl:'app/views/contato.ejs'
+    $routeProvider.when('/cadPortfolio', {
+        templateUrl:'partials/cadPortfolio.html',
+        controller: 'PortfolioCadastroController'
     });
 
     $routeProvider.otherwise({redirectTo:'/'})
