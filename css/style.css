@@ -148,7 +148,25 @@ header {
 .cadastro button, .cadastro a {
   font-family: "Open Sans", sans-serif;
   color: #7e8082;
-  font-size: 1em;
+  font-size: 1em; }
+
+.cadastro .btn {
   color: #ffffff; }
 
 /* PARTIAL - CADASTRO PORTFOLIO - FIM */
+/* PARTIAL - CADASTRO TECNOLOGIA - INICIO */
+.tecnologia label, .tecnologia input[type='text'], .tecnologia input[type='file'] {
+  font-family: "Open Sans", sans-serif;
+  color: #7e8082;
+  font-size: 1em;
+  padding-bottom: 10px; }
+
+.tecnologia button, .tecnologia a {
+  font-family: "Open Sans", sans-serif;
+  color: #7e8082;
+  font-size: 1em; }
+
+.tecnologia .btn {
+  color: #ffffff; }
+
+/* PARTIAL - CADASTRO TECNOLOGIA - FIM */

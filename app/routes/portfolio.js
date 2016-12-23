@@ -1,6 +1,10 @@
 module.exports = function(app){
     var controller = app.controllers.portfolio;
     
-    app.get('/portfolio', controller.listaPortfolio);
-    app.get('/portfolio/:id', controller.casePortfolio);
+    app.route('/portfolio')
+        .get(controller.listaPortfolio);
+
+    app.route('/portfolio/:idCase')
+        .get(controller.obtemCase)
+        .delete(controller.removeCase);
 }

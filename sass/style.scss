@@ -216,7 +216,24 @@ header{
     }
     & button, & a{
         @include fontPadraoMX(1em);
+    }
+    & .btn {
         color: $branco;
     }
 }
 /* PARTIAL - CADASTRO PORTFOLIO - FIM */
+
+/* PARTIAL - CADASTRO TECNOLOGIA - INICIO */
+.tecnologia{
+    & label, & input[type='text'], & input[type='file']{
+        @include fontPadraoMX(1em);
+        padding-bottom: 10px;
+    }
+    & button, & a{
+        @include fontPadraoMX(1em);
+    }
+    & .btn {
+        color: $branco;
+    }
+}
+/* PARTIAL - CADASTRO TECNOLOGIA - FIM */

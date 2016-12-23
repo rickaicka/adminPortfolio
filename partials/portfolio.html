@@ -25,8 +25,8 @@
                 <td>{{case.data | date : 'dd/MM/yyyy'}}</td>
                 <td class="acoes">
                     <ul>
-                        <li style="display:inline-block"><a href="/editPortfolio/{{case._id}}" class="btn btn-warning">Editar</a></li>
-                        <li style="display:inline-block"><a href="/removePortfolio/{{case._id}}" class="btn btn-danger">Excluir</a></li>
+                        <li style="display:inline-block"><a ng-href="/portfolio/{{case._id}}" class="btn btn-warning">Editar</a></li>
+                        <li style="display:inline-block"><button ng-click="remove(case)" class="btn btn-danger">Excluir</button></li>
                     </ul>
                 </td>
             </tr>

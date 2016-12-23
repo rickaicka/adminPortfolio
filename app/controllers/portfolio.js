@@ -19,15 +19,21 @@ module.exports = function(){
         res.json(cases);            
     };
     
-    controller.casePortfolio = function(req, res){
-        var idCasePortfolio = req.params.id;
+    controller.obtemCase = function(req,res){
+        var idCase = req.params.idCase;
         var casePortfolio = cases.filter(function(casePortfolio){
-            return casePortfolio._id == idCasePortfolio;
+            return casePortfolio._id == idCase;
         })[0];
         casePortfolio ? res.json(casePortfolio) : res.status(404).send('Case não encontrado');
     };
     
-    
+    controller.removeCase = function(req, res){
+        var idCase = req.params.idCase;
+        cases = cases.filter(function(casePortfolio){
+            return casePortfolio._id != idCase;
+        });
+        res.status(204).end();
+    };
     
     return controller;
 }

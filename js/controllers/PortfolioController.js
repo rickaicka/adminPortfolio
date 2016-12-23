@@ -2,13 +2,14 @@ angular.module('Main').controller('PortfolioController', function($scope, $route
     
     $scope.cases = [];
     $scope.filtro = '';
+    $scope.mensagem = '';
     /*
                FTP
 
     var Case = $resource('/nd-admin/portfolio/:id');
     var Cases = $resource('/nd-admin/portfolio');*/
 
-    var Case = $resource('/portfolio/:id');
+    var Case = $resource('/portfolio/:idCase');
     var Cases = $resource('/portfolio');
     
     $scope.init = function(){
@@ -26,15 +27,23 @@ angular.module('Main').controller('PortfolioController', function($scope, $route
         );
     };
 
-    Case.get({id: $routeParams.caseId},
-            function(casePortfolio){
-                $scope.casePortfolio = casePortfolio;
-            },
-            function(erro){
-                console.log("Não foi possível obter case");
+    $scope.remove = function(casePortfolio){
+      Case.delete({idCase: casePortfolio._id}, buscaCases, function(erro){
+                console.log('Não foi possível excluir case');
                 console.log(erro);
             }
-       );
+        );
+    };
+
+    Contato.get({idCase: $routeParams.idCase}, function(casePortfolio){
+       $scope.casePortfolio = casePortfolio;
+    }, function(erro){
+        $scope.mensagem = {
+            texto: 'Não foi possível localizar o case'
+        };
+        console.log(erro);
+    });
+
 
     $scope.init();
 })
