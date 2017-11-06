@@ -1,4 +1,4 @@
-angular.module('Main', ['ngRoute', 'ngResource', '720kb.datepicker']).config(function($routeProvider){
+angular.module('Main', ['ngRoute', 'ngResource', '720kb.datepicker', 'checklist-model','file-model']).config(function($routeProvider, $locationProvider){
 
     $routeProvider.when('/index', {
         templateUrl:'partials/home.html',
@@ -16,13 +16,13 @@ angular.module('Main', ['ngRoute', 'ngResource', '720kb.datepicker']).config(fun
     });
 
     $routeProvider.when('/portfolio/:idCase', {
-        templateUrl:'partials/portfolio.html',
+        templateUrl:'partials/cadPortfolio.html',
         controller: 'PortfolioController'
     });
 
     $routeProvider.when('/cadPortfolio', {
         templateUrl:'partials/cadPortfolio.html',
-        controller: 'PortfolioCadastroController'
+        controller: 'PortfolioController'
     });
 
     $routeProvider.when('/cadTecnologia', {
@@ -30,5 +30,6 @@ angular.module('Main', ['ngRoute', 'ngResource', '720kb.datepicker']).config(fun
         controller: 'TecnologiaController'
     });
 
+    $locationProvider.hashPrefix('');
     $routeProvider.otherwise({redirectTo:'/'})
 });

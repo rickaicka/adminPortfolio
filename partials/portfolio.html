@@ -20,13 +20,13 @@
         </thead>
         <tbody>
             <tr ng-repeat="case in cases">
-                <td>{{case.nome}}</td>
-                <td>{{case.tipo}}</td>
+                <td>{{case.name}}</td>
+                <td>{{case.category.name}}</td>
                 <td>{{case.data | date : 'dd/MM/yyyy'}}</td>
                 <td class="acoes">
                     <ul>
-                        <li style="display:inline-block"><a ng-href="/portfolio/{{case._id}}" class="btn btn-warning">Editar</a></li>
-                        <li style="display:inline-block"><button ng-click="remove(case)" class="btn btn-danger">Excluir</button></li>
+                        <li style="display:inline-block"><a ng-href="#/portfolio/{{case.id}}" class="btn btn-warning">Editar</a></li>
+                        <li style="display:inline-block"><button ng-click="remove(case.id)" class="btn btn-danger">Excluir</button></li>
                     </ul>
                 </td>
             </tr>

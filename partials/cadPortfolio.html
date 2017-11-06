@@ -8,24 +8,20 @@
 
 
 <section class="col-md-6 cadastro">
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="nome">Nome do Case: </label>
-            <input type="text" name="nome" ng-model="nome" class="form-control">
+            <input type="text" name="nome" ng-model="job.name" class="form-control">
         </div>
         <div class="form-group">
             <label for="tipo">Tipo do Case: </label>
-            <select class="form-control" name="tipo" ng-model="tipo">
-                <option value="site">Site Institucional</option>
-                <option value="landing">Landing Page</option>
-                <option value="emkt">E-mail Marketing</option>
-                <option value="sistema">Sistema</option>
-                <option value="wordpress">Site Wordpress</option>
+            <select class="form-control" name="tipo" ng-model="job.category" >
+                <option ng-repeat="category in categories" value="{{category.id}}">{{category.name}}</option>
             </select>
         </div>
         <div class="form-group">
             <label for="descricao">Descrição: </label>
-            <textarea class="form-control" rows="5" ng-model="descricao" name="descricao"></textarea>
+            <textarea class="form-control" rows="5" ng-model="job.description" name="descricao"></textarea>
         </div>
         <div class="form-group">
             <label for="data">Data: </label>
@@ -34,7 +30,7 @@
                     <span class="input-group-addon" style="cursor: pointer">
                         <i class="fa fa-lg fa-calendar"></i>
                     </span>
-                    <input ng-model="data" name="data" type="text" class="form-control">
+                    <input ng-model="job.date_job" name="data" type="text" class="form-control">
                 </div>
             </datepicker>
         </div>
@@ -42,56 +38,19 @@
             <label for="case">Tecnologias: <a href="#/cadTecnologia" class="btn btn-success btn-xs">Novo</a> </label>
             <ul class="checkbox coluna1">
                 <li>
-                    <label>
-                        <input type="checkbox" value="html5"> HTML5
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        <input type="checkbox" value="html5"> CSS3
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        <input type="checkbox" value="html5"> NodeJs
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        <input type="checkbox" value="html5"> Java
-                    </label>
-                </li>
-            </ul>
-            <ul class="checkbox coluna2">
-                <li>
-                    <label>
-                        <input type="checkbox" value="html5"> HTML5
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        <input type="checkbox" value="html5"> CSS3
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        <input type="checkbox" value="html5"> NodeJs
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        <input type="checkbox" value="html5"> Java
+                    <label ng-repeat="technology in technologies">
+                        <input checklist-model="job.technologies" type="checkbox" checklist-value="technology.id" ng-change="selected(technology.id)"> {{technology.name}}
                     </label>
                 </li>
             </ul>
         </div>
         <div class="form-group">
             <label for="imgDestaque">Imagem de Destaque: </label>
-            <input type="file" name="imgDestaque" ng-model="imgDestaque" class="form-control">
+            <input type="file" name="image" file-model="fileImage" class="form-control">
         </div>
         <div class="pull-right">
             <a href="#/portfolio" class="btn btn-danger">Cancelar</a>
-            <button class="btn btn-success">Salvar</button>
+            <button class="btn btn-success" ng-click="save()">Salvar</button>
         </div>
     </form>
 </section>
